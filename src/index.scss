@@ -1,0 +1,178 @@
+//* Variable Overrides *//
+$indigo: #1d01ff;
+$gray-200: #eee;
+$gray-700: #6A717F;
+$font-family-sans-serif: 'Montserrat', sans-serif !default;
+
+$primary: $indigo !default;
+$secondary: $gray-700 !default;
+$light: $gray-200 !default;
+$input-btn-padding-y: .75rem !default;
+$input-btn-padding-x: 1.75rem !default;
+$btn-padding-y-sm: .5rem;
+$btn-padding-x-sm: 1.5rem;
+$input-btn-font-size: .8rem !default;
+$btn-font-size: .8rem; 
+$btn-font-size-sm: .8rem;
+$btn-font-size-lg: .8rem;
+$accordion-button-bg: $light;
+$accordion-button-active-bg: $light;
+$accordion-border-width: 0;
+$input-padding-x: .75rem;
+$nav-tabs-link-active-color: $light;
+$nav-tabs-link-active-bg: $primary;
+$nav-tabs-border-radius: .375rem;
+$nav-tabs-border-width: 0;
+//**//
+
+//* Vendor *//
+@import "bootstrap/scss/bootstrap";
+@import "bootstrap-icons/font/bootstrap-icons";
+//**//
+
+//* Components *//
+@import "/src/components/Header/styles";
+@import "/src/components/Footer/styles";
+@import "/src/components/PageTitle/styles";
+@import "/src/components/Accordion/styles";
+//**//
+
+//* Mods *//
+@import "./mixins";
+
+.--with-shadow {
+  @include withShadow;  
+}
+//**//
+
+//* Global Styles *//
+body,
+html {
+  height: 100%;
+}
+
+#root {
+  /*
+    This is to make the app fill in the viewport
+    and place header on top and footer on bottom
+    when there's not enough content.
+  */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  
+  main {
+    flex-grow: 2;
+  }
+}
+
+.form-control {
+  &::placeholder {
+    opacity: .3;
+    transition: all .3s ease;
+  }
+}
+
+input[type=number] {
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.form-label,
+.form-check-label {
+  font-size: .8rem;
+  color: $secondary;
+
+  i {
+    color: $danger;
+  }
+}
+
+.form-text {
+  font-size: 0.7rem;
+  color: #6A717F;
+}
+
+.form-group--material {
+  position: relative;
+
+  .form-label {
+    position: absolute;
+    font-size: .8rem;
+    left: 0.5rem;
+    bottom: 36%;
+    line-height: 1;
+    margin: 0;
+    opacity: .3;
+    transition: all .3s ease;
+    pointer-events: none;
+    background: #fff;
+    padding-inline: 5px;
+    color: $secondary;
+  }
+
+  .form-control {
+    &[required] + .form-label::after {
+      content: ' *';
+      color: $danger;
+    }
+
+    &::placeholder {
+      opacity: 0;
+    }
+  }
+
+  &.--dirty {
+    .form-label {
+      opacity: 1;
+      bottom: 89%;
+      transform: scale(.8);
+      transform-origin: left center;
+    }
+  }
+}
+
+.nav-tabs {
+  background: $light;
+  border-radius: $nav-tabs-border-radius;
+  padding: .5rem;
+
+  .nav-link {
+    border-radius: $nav-tabs-border-radius;
+    font-weight: 300;
+  }
+}
+
+.btn {
+  font-weight: 300;
+}
+
+.table {
+  font-size: .8rem;
+
+  thead {
+    background: $secondary;
+  }
+  
+  th {
+    color: $light;
+    background: transparent;
+    font-weight: 500;
+  }
+
+  td {
+    font-weight: 300;
+    vertical-align: middle;
+    padding-block: .75rem;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+//**//

@@ -1,0 +1,27 @@
+.header {
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.15);
+
+  &__toggle {
+    border: none;
+    padding-inline: 0;
+  }
+
+  &__user-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  &__user-menu-item {
+    font-size: 0.8rem;
+    display: flex;
+    gap: 3px;
+    align-items: center;
+    text-decoration: none;
+    color: $secondary;
+
+    i {
+      color: $primary;
+    }
+  }
+}
